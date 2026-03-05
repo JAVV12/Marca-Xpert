@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7FFFD4;
+  --color-brand-black: #0D1B1E;
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-manrope);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-black);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: max(884px, 100dvh);
+  }
+}
+
+@layer utilities {
+  .glow-shadow {
+    box-shadow: 0 0 25px rgba(127, 255, 212, 0.25);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 12px rgba(127, 255, 212, 0.5);
+  }
+
+  .glow-button {
+    box-shadow: 0 0 30px rgba(127, 255, 212, 0.4);
+  }
+
+  .vsl-border {
+    border: 1px solid rgba(127, 255, 212, 0.2);
+  }
+
+  .product-gradient {
+    background: linear-gradient(180deg,
+        rgba(13, 27, 30, 0) 0%,
+        rgba(127, 255, 212, 0.05) 50%,
+        rgba(13, 27, 30, 0) 100%);
+  }
+
+  .mockup-frame {
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(127, 255, 212, 0.3);
+  }
+
+  .sticky-countdown {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--color-primary);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: max-content;
+  }
+}
