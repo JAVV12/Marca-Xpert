@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { CustomVideoPlayer } from "@/components/ui/CustomVideoPlayer";
 
 const PROOFS = [
     { id: 1, title: "Estructura y Flujo Liberado", subtitle: "Resultados de Impacto" },
@@ -70,16 +71,12 @@ export function SocialProof() {
                                         </div>
                                     </>
                                 ) : (
-                                    <video
-                                        src={`/videos/testimonial-${proof.id}-optimized.mp4`}
-                                        className="w-full h-full object-contain"
-                                        controls
-                                        controlsList="nodownload"
-                                        disablePictureInPicture
-                                        disableRemotePlayback
-                                        autoPlay
-                                        playsInline
-                                    />
+                                    <div className="w-full h-full bg-black">
+                                        <CustomVideoPlayer 
+                                            src={`/videos/testimonial-${proof.id}-optimized.mp4`} 
+                                            autoPlay 
+                                        />
+                                    </div>
                                 )}
                             </div>
                         </motion.div>
