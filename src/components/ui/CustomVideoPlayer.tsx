@@ -52,16 +52,7 @@ export function CustomVideoPlayer({ src, poster, autoPlay = false }: CustomVideo
         }
     };
 
-    const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!videoRef.current) return;
-        
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        
-        videoRef.current.currentTime = (percentage / 100) * videoRef.current.duration;
-        setProgress(percentage);
-    };
+
 
     return (
         <div className="relative w-full h-full group bg-black overflow-hidden rounded-inherit">
@@ -95,15 +86,31 @@ export function CustomVideoPlayer({ src, poster, autoPlay = false }: CustomVideo
                         {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
                     </button>
                     
-                    {/* Progress Bar Container */}
-                    <div 
-                        className="flex-1 h-3 bg-white/20 rounded-full cursor-pointer relative overflow-hidden group/bar"
-                        onClick={handleSeek}
-                    >
-                        {/* Neon Progress Fill */}
-                        <div 
-                            className="absolute top-0 left-0 h-full bg-primary rounded-full tracking-wider shadow-[0_0_10px_#7FFFD4]"
-                            style={{ width: `${progress}%` }}
+                    {/* Progress Bar Container with Native Range Input for Mobile Drag Support */}
+                    <div className="flex-1 h-6 relative flex items-center cursor-pointer group/bar">
+                        {/* Background track */}
+                        <div className="w-full h-2 md:h-3 bg-white/20 rounded-full overflow-hidden pointer-events-none">
+                            {/* Neon Progress Fill */}
+                            <div 
+                                className="h-full bg-primary rounded-full tracking-wider shadow-[0_0_10px_#7FFFD4] transition-all duration-75"
+                                style={{ width: `${progress}%` }}
+                            />
+                        </div>
+
+                        {/* Invisible Native Input for Perfect Touch/Drag/Seek */}
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            step="0.1"
+                            value={progress || 0}
+                            onChange={(e) => {
+                                if (!videoRef.current) return;
+                                const newPercentage = parseFloat(e.target.value);
+                                videoRef.current.currentTime = (newPercentage / 100) * videoRef.current.duration;
+                                setProgress(newPercentage);
+                            }}
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer touch-none z-10"
                         />
                     </div>
                 </div>
