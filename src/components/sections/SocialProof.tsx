@@ -2,15 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
 
 const PROOFS = [
-    { img: "https://images.unsplash.com/photo-1542382257-8024cb862808?q=80&w=600&auto=format&fit=crop" },
-    { img: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=600&auto=format&fit=crop" },
-    { img: "https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=600&auto=format&fit=crop" },
-    { img: "https://images.unsplash.com/photo-1507238692062-7e9b08d2ae47?q=80&w=600&auto=format&fit=crop" },
+    { id: 1, title: "Estructura y Flujo Liberado", subtitle: "Resultados de Impacto" },
+    { id: 2, title: "Facturación de 6 Cifras", subtitle: "Escala 10X" },
+    { id: 3, title: "Sistema Autónomo y Libertad", subtitle: "Caso de Éxito" },
 ];
 
 export function SocialProof() {
+    const [activeVideo, setActiveVideo] = useState<number | null>(null);
+
     return (
         <section className="py-20 bg-brand-black overflow-hidden relative">
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
@@ -38,30 +41,43 @@ export function SocialProof() {
                             transition={{ delay: idx * 0.15 }}
                             className="w-[280px] md:w-[320px] lg:w-[350px] flex-shrink-0 snap-center"
                         >
-                            <div className="vsl-border rounded-3xl overflow-hidden aspect-[9/16] relative bg-slate-900 group mockup-frame cursor-pointer transition-transform hover:-translate-y-2 duration-300">
-                                <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 w-full h-full to-transparent z-10 opacity-90 group-hover:opacity-80 transition-opacity"></div>
-
-                                <div className="absolute inset-0 flex items-center justify-center z-20 transition-transform duration-500 scale-95 group-hover:scale-100">
-                                    <div className="size-16 md:size-20 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/40 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300 shadow-[0_0_20px_rgba(127,255,212,0.3)]">
-                                        <Play className="text-primary w-8 h-8 md:w-10 md:h-10 ml-1 fill-primary" />
-                                    </div>
-                                </div>
-
-                                <img
-                                    alt={`Social Proof ${idx + 1}`}
-                                    className="w-full h-full object-cover grayscale-[0.2] opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                                    src={proof.img}
-                                    loading="lazy"
-                                />
-
-                                <div className="absolute bottom-6 left-6 right-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                    <p className="text-primary font-black text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 glow-text">
-                                        CEO OSUNO - Esteban Valencia
-                                    </p>
-                                    <p className="text-white text-lg md:text-xl font-bold leading-tight drop-shadow-xl">
-                                        Marca 100% desarrollada con Marca Xpert
-                                    </p>
-                                </div>
+                            <div 
+                                className="vsl-border rounded-[2rem] overflow-hidden aspect-[9/16] relative bg-slate-900 group mockup-frame cursor-pointer transition-transform hover:-translate-y-2 duration-300"
+                                onClick={() => setActiveVideo(proof.id)}
+                            >
+                                {activeVideo !== proof.id ? (
+                                    <>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 w-full h-full to-transparent z-10 opacity-90 group-hover:opacity-80 transition-opacity"></div>
+                                        <div className="absolute inset-0 flex items-center justify-center z-20 transition-transform duration-500 scale-95 group-hover:scale-100">
+                                            <div className="size-16 md:size-20 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/40 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300 shadow-[0_0_20px_rgba(127,255,212,0.3)]">
+                                                <Play className="text-primary w-8 h-8 md:w-10 md:h-10 ml-1 fill-primary" />
+                                            </div>
+                                        </div>
+                                        <Image
+                                            alt={`Testimonio Marca Xpert ${proof.id}`}
+                                            className="w-full h-full object-contain grayscale-[0.2] opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                            src={`/testimonial-${proof.id}-poster.jpg`}
+                                            fill
+                                            sizes="(max-width: 768px) 280px, 350px"
+                                        />
+                                        <div className="absolute bottom-6 left-6 right-6 z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                            <p className="text-primary font-black text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2 glow-text">
+                                                {proof.subtitle}
+                                            </p>
+                                            <p className="text-white text-lg md:text-xl font-bold leading-tight drop-shadow-xl">
+                                                {proof.title}
+                                            </p>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <video
+                                        src={`/videos/testimonial-${proof.id}-optimized.mp4`}
+                                        className="w-full h-full object-contain"
+                                        controls
+                                        autoPlay
+                                        playsInline
+                                    />
+                                )}
                             </div>
                         </motion.div>
                     ))}
