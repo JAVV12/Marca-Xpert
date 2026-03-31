@@ -87,7 +87,7 @@ export function Bonuses() {
                                         </span>
                                         <bn.icon className="w-8 h-8 md:w-10 md:h-10 text-primary group-hover:fill-primary/20 transition-all shrink-0" strokeWidth={1.5} />
                                     </div>
-                                    <h4 className="font-bold text-xl md:text-2xl mb-3 tracking-tight uppercase text-white group-hover:text-primary transition-colors duration-300">
+                                    <h4 className="font-bold text-xl md:text-2xl mb-3 tracking-tight uppercase text-primary transition-colors duration-300">
                                         {bn.title}
                                     </h4>
                                     <p className="text-slate-300 text-sm md:text-base leading-relaxed font-medium">

@@ -37,7 +37,7 @@ export function Roadmap() {
                         viewport={{ once: true }}
                         className="mb-8 flex justify-center"
                     >
-                        <div className="relative w-1/2 md:w-2/5 aspect-[4/3] group max-w-sm transition-transform hover:scale-105 duration-500">
+                        <div className="relative w-full md:w-3/4 aspect-[4/3] group max-w-lg transition-transform hover:scale-105 duration-500">
                             <Image
                                 src="/roadmap-mockup.png?v=2"
                                 alt="Visualización de la Metodología Marca Xpert"
