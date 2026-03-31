@@ -45,10 +45,15 @@ export function OfferAndGuarantee() {
                         </p>
                     </div>
 
-                    <button className="w-full relative z-10 bg-primary text-brand-black font-black py-6 md:py-7 rounded-2xl glow-button uppercase tracking-[0.2em] text-lg md:text-xl active:scale-[0.98] hover:bg-white transition-all shadow-xl group">
+                    <a
+                        href="https://pay.hotmart.com/O103789470F"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full relative z-10 bg-primary text-brand-black font-black py-6 md:py-7 rounded-2xl glow-button uppercase tracking-[0.2em] text-lg md:text-xl active:scale-[0.98] hover:bg-white transition-all shadow-xl group block text-center"
+                    >
                         <span className="relative z-10">QUIERO ESCALAR</span>
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity"></div>
-                    </button>
+                    </a>
                 </motion.div>
 
                 <motion.div

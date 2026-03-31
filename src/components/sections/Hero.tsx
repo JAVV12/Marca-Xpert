@@ -91,14 +91,17 @@ export function Hero() {
                 )}
             </motion.div>
 
-            <motion.button
+            <motion.a
+                href="https://pay.hotmart.com/O103789470F"
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="w-full md:w-auto md:px-14 bg-primary text-brand-black font-black py-5 md:py-6 rounded-xl glow-button uppercase tracking-widest text-sm md:text-lg active:scale-[0.98] hover:bg-white transition-all shadow-[0_0_30px_rgba(127,255,212,0.4)]"
+                className="w-full md:w-auto md:px-14 bg-primary text-brand-black font-black py-5 md:py-6 rounded-xl glow-button uppercase tracking-widest text-sm md:text-lg active:scale-[0.98] hover:bg-white transition-all shadow-[0_0_30px_rgba(127,255,212,0.4)] block text-center"
             >
                 QUIERO ESCALAR A 7 CIFRAS
-            </motion.button>
+            </motion.a>
         </header>
     );
 }
