@@ -74,7 +74,7 @@ export function SocialProof() {
                                         src={`/videos/testimonial-${proof.id}-optimized.mp4`}
                                         className="w-full h-full object-contain"
                                         controls
-                                        controlsList="nodownload nofullscreen"
+                                        controlsList="nodownload"
                                         disablePictureInPicture
                                         disableRemotePlayback
                                         autoPlay

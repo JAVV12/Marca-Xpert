@@ -85,7 +85,7 @@ export function Hero() {
                         src="/videos/vsl.mp4"
                         className="w-full h-full object-contain"
                         controls
-                        controlsList="nodownload nofullscreen"
+                        controlsList="nodownload"
                         disablePictureInPicture
                         disableRemotePlayback
                         autoPlay
