@@ -26,9 +26,10 @@ export function MentorAuthority() {
 
                         <div className="relative size-64 md:size-80 rounded-full overflow-hidden border-[5px] border-primary/30 shadow-[0_0_40px_rgba(127,255,212,0.3)] bg-white/5">
                             <Image
-                                src="/mentor.jpg"
+                                src="/mentor.jpg?v=2"
                                 alt="Jonathan Toro - Mentor de Marca Xpert"
                                 fill
+                                unoptimized={true}
                                 className="object-cover object-top grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />

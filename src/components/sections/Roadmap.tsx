@@ -39,9 +39,10 @@ export function Roadmap() {
                     >
                         <div className="relative w-1/4 aspect-[4/3] group max-w-xs transition-transform hover:scale-110 duration-500">
                             <Image
-                                src="/roadmap-mockup.png"
+                                src="/roadmap-mockup.png?v=2"
                                 alt="Visualización de la Metodología Marca Xpert"
                                 fill
+                                unoptimized={true}
                                 className="object-contain drop-shadow-[0_20px_50px_rgba(127,255,212,0.3)]"
                                 sizes="200px"
                             />
