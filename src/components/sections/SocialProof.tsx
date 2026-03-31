@@ -91,7 +91,6 @@ export function SocialProof() {
                 <div className="size-2 rounded-full bg-primary glow-shadow w-6 transition-all duration-300"></div>
                 <div className="size-2 rounded-full bg-primary/30"></div>
                 <div className="size-2 rounded-full bg-primary/30"></div>
-                <div className="size-2 rounded-full bg-primary/30"></div>
             </div>
             <div className="text-center mt-6 px-6 relative z-10">
                 <p className="text-slate-400 text-sm md:text-base font-medium italic tracking-widest uppercase">
