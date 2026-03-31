@@ -86,8 +86,8 @@ export function CustomVideoPlayer({ src, poster, autoPlay = false }: CustomVideo
                 </div>
             )}
 
-            {/* Controles Custom (Progreso y Play/Pause en barra inferior) */}
-            <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-4 pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {/* Controles Custom (Progreso y Play/Pause en barra inferior - SIEMPRE VISIBLE) */}
+            <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end px-4 pb-3">
                 
                 {/* Botón y Barra de progreso en la misma línea */}
                 <div className="flex items-center gap-4">
