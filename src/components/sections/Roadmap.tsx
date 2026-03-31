@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const PHASES = [
     {
@@ -29,7 +30,24 @@ export function Roadmap() {
     return (
         <section className="px-6 py-16 bg-white/[0.02] overflow-hidden">
             <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 px-6">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="mb-8 flex justify-center"
+                    >
+                        <div className="relative w-1/4 aspect-[4/3] group max-w-xs transition-transform hover:scale-110 duration-500">
+                            <Image
+                                src="/roadmap-mockup.png"
+                                alt="Visualización de la Metodología Marca Xpert"
+                                fill
+                                className="object-contain drop-shadow-[0_20px_50px_rgba(127,255,212,0.3)]"
+                                sizes="200px"
+                            />
+                        </div>
+                    </motion.div>
+                    
                     <motion.span
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}

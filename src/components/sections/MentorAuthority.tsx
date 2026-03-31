@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck, Target, Network } from "lucide-react";
+import { Award, TrendingUp, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 export function MentorAuthority() {
     return (
@@ -24,14 +25,16 @@ export function MentorAuthority() {
                         <div className="absolute inset-0 bg-primary/30 rounded-full blur-[50px] transition-all group-hover:blur-[70px] duration-500"></div>
 
                         <div className="relative size-64 md:size-80 rounded-full overflow-hidden border-[5px] border-primary/30 shadow-[0_0_40px_rgba(127,255,212,0.3)] bg-white/5">
-                            <img
-                                alt="Jonathan Toro"
-                                className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
-                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop"
+                            <Image
+                                src="/mentor.jpg"
+                                alt="Jonathan Toro - Mentor de Marca Xpert"
+                                fill
+                                className="object-cover object-top grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </div>
                         <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-primary text-brand-black p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(127,255,212,0.5)] border-2 border-brand-black">
-                            <BadgeCheck className="w-8 h-8 md:w-10 md:h-10 fill-brand-black text-primary" strokeWidth={1} />
+                            <Award className="w-8 h-8 md:w-10 md:h-10 fill-brand-black text-primary" strokeWidth={1} />
                         </div>
                     </motion.div>
 
@@ -59,11 +62,11 @@ export function MentorAuthority() {
 
                         <div className="pt-6 flex flex-wrap justify-center md:justify-start gap-4">
                             <div className="flex items-center gap-2 px-5 py-2.5 bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-                                <Target className="text-primary w-5 h-5 flex-shrink-0" />
+                                <TrendingUp className="text-primary w-5 h-5 flex-shrink-0" />
                                 <span className="text-xs font-black uppercase tracking-widest text-white">Ingeniería</span>
                             </div>
                             <div className="flex items-center gap-2 px-5 py-2.5 bg-white/5 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-                                <Network className="text-primary w-5 h-5 flex-shrink-0" />
+                                <Briefcase className="text-primary w-5 h-5 flex-shrink-0" />
                                 <span className="text-xs font-black uppercase tracking-widest text-white">Método Néxor</span>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Gem, LineChart, Users } from "lucide-react";
+import Image from "next/image";
 
 const BONUSES = [
     {
@@ -49,18 +50,36 @@ export function Bonuses() {
                             transition={{ delay: idx * 0.1 }}
                             className={`p-6 md:p-8 rounded-[2rem] bg-gradient-to-br from-white/[0.08] to-transparent border border-white/10 hover:border-primary/40 hover:from-primary/[0.05] transition-all group shadow-xl ${idx === 0 ? 'border-primary/30 from-primary/[0.08]' : ''}`}
                         >
-                            <div className="flex justify-between items-start mb-6">
-                                <span className={`text-[10px] md:text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md ${idx === 0 ? 'bg-primary text-brand-black glow-shadow' : 'bg-white/10 text-white'}`}>
-                                    {bn.val}
-                                </span>
-                                <bn.icon className={`w-8 h-8 md:w-10 md:h-10 ${idx === 0 ? 'text-primary fill-primary/20' : 'text-slate-400 group-hover:text-primary transition-colors'}`} strokeWidth={1.5} />
+                            <div className={`flex flex-col ${idx === 0 ? 'md:flex-row gap-8 items-center' : 'gap-6'}`}>
+                                <div className="flex-1 order-2 md:order-1">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <span className={`text-[10px] md:text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md ${idx === 0 ? 'bg-primary text-brand-black glow-shadow' : 'bg-white/10 text-white'}`}>
+                                            {bn.val}
+                                        </span>
+                                        <bn.icon className={`w-8 h-8 md:w-10 md:h-10 ${idx === 0 ? 'text-primary fill-primary/20 shrink-0' : 'text-slate-400 group-hover:text-primary transition-colors shrink-0'}`} strokeWidth={1.5} />
+                                    </div>
+                                    <h4 className={`font-bold text-xl md:text-2xl mb-3 tracking-tight uppercase ${idx === 0 ? 'text-primary' : 'text-white'}`}>
+                                        {bn.title}
+                                    </h4>
+                                    <p className="text-slate-300 text-sm md:text-base leading-relaxed font-medium">
+                                        {bn.desc}
+                                    </p>
+                                </div>
+                                
+                                {idx === 0 && (
+                                    <div className="flex-1 order-1 md:order-2 flex justify-center py-4">
+                                        <div className="relative w-1/4 md:w-1/3 aspect-[4/3] group transition-transform hover:scale-110 duration-500">
+                                            <Image
+                                                src="/bonus-masterclass.png"
+                                                alt="Mockup de la Masterclass Identidad de 7 Cifras"
+                                                fill
+                                                className="object-contain drop-shadow-[0_20px_50px_rgba(127,255,212,0.2)]"
+                                                sizes="(max-width: 768px) 150px, 300px"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                            <h4 className={`font-bold text-xl md:text-2xl mb-3 tracking-tight uppercase ${idx === 0 ? 'text-primary' : 'text-white'}`}>
-                                {bn.title}
-                            </h4>
-                            <p className="text-slate-300 text-sm md:text-base leading-relaxed font-medium max-w-2xl">
-                                {bn.desc}
-                            </p>
                         </motion.div>
                     ))}
                 </div>

@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useState } from "react";
 
 export function Hero() {
+    const [isPlaying, setIsPlaying] = useState(false);
+
     return (
         <header className="pt-12 pb-16 px-6 text-center max-w-4xl mx-auto">
             <motion.div
@@ -61,18 +64,31 @@ export function Hero() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 }}
                 className="relative w-full shadow-[0_0_40px_rgba(127,255,212,0.15)] aspect-video rounded-2xl overflow-hidden mb-10 vsl-border bg-brand-black cursor-pointer group"
+                onClick={() => setIsPlaying(true)}
             >
-                <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center z-10 transition-colors group-hover:bg-slate-900/30">
-                    <div className="size-20 md:size-24 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/40 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300 shadow-[0_0_25px_rgba(127,255,212,0.4)]">
-                        <Play className="text-primary w-10 h-10 md:w-12 md:h-12 ml-1 fill-primary drop-shadow-md" />
-                    </div>
-                </div>
-                <img
-                    alt="VSL Preview"
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-                    src="https://images.unsplash.com/photo-1542382257-8024cb862808?q=80&w=2600&auto=format&fit=crop"
-                    loading="eager"
-                />
+                {!isPlaying ? (
+                    <>
+                        <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center z-10 transition-colors group-hover:bg-slate-900/30">
+                            <div className="size-20 md:size-24 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/40 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300 shadow-[0_0_25px_rgba(127,255,212,0.4)]">
+                                <Play className="text-primary w-10 h-10 md:w-12 md:h-12 ml-1 fill-primary drop-shadow-md" />
+                            </div>
+                        </div>
+                        <img
+                            alt="VSL Preview"
+                            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                            src="/vsl-poster.jpg"
+                            loading="eager"
+                        />
+                    </>
+                ) : (
+                    <video
+                        src="/videos/vsl.mp4"
+                        className="w-full h-full object-contain"
+                        controls
+                        autoPlay
+                        playsInline
+                    />
+                )}
             </motion.div>
 
             <motion.button
