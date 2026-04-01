@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page Structure Template - Marca Xpert",
+  title: "Negocios Digitales - Marca Xpert",
   description: "Roadmap de alto nivel y escala X10.",
 };
 
